@@ -9,13 +9,9 @@ import UIKit
 
 class FirstVCInThirdLine: UIViewController {
     
-    private lazy var alertButton = AlertButton(buttonName: .nextScreen) {
-        self.showNextScreen(SecondVCInThirdLine())
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "2"
-        setAlertMainButton(alertButton)
+        setNextButton(nextVC: SecondVCInThirdLine)
     }
 }

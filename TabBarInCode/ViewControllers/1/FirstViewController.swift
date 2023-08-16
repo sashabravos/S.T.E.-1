@@ -8,13 +8,11 @@
 import UIKit
 
 class FirstViewController: UIViewController {
-    
-    private lazy var alertButton = AlertButton(buttonName: .lastScreen, action: showLastScreenAlert)
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "1"
-        setAlertMainButton(alertButton)
+        setFinalButton()
     }
 }
 

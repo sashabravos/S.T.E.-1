@@ -9,7 +9,20 @@ import UIKit
 
 extension UIViewController {
     
-    func setAlertMainButton(_ button: AlertButton) {
+    public func setFinalButton() {
+        let alertButton = AlertButton(buttonName: .lastScreen,
+                                           action: showLastScreenAlert)
+        setAlertMainButton(alertButton)
+    }
+    
+    public func setNextButton(nextVC: UIViewController) {
+        let alertButton = AlertButton(buttonName: .nextScreen) { [weak self] in
+            self?.navigationController?.pushViewController(nextVC, animated: true)
+        }
+        setAlertMainButton(alertButton)
+    }
+    
+    private func setAlertMainButton(_ button: AlertButton) {
         view.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -20,13 +33,9 @@ extension UIViewController {
         ])
     }
     
-    public func showLastScreenAlert() {
+    private func showLastScreenAlert() {
         let alertController = UIAlertController(title: "There is a last screen", message: "try to return", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alertController, animated: true)
-    }
-    
-    public func showNextScreen(_ nextVC: UIViewController) {
-        navigationController?.pushViewController(nextVC, animated: true)
     }
 }

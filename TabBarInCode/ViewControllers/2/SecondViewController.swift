@@ -8,15 +8,11 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-    
-    private lazy var alertButton = AlertButton(buttonName: .nextScreen) {
-        self.showNextScreen(FirstVCInSecondLine())
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "1"
-        setAlertMainButton(alertButton)
+        setNextButton(nextVC: FirstVCInSecondLine())
     }
 }
 
